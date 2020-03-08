@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Object</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
+</head>
+<body>
+
+    <form class="p-4">
+        <div class="form-group">
+            <input type="text" id="id" class="form-control" placeholder="ID" autofocus>
+        </div>
+        <div class="form-group">
+            <input type="text" id="description" class="form-control" placeholder="Description">
+        </div>
+        <div class="form-group">
+            <input type="text" id="location" class="form-control" placeholder="Location">
+        </div>
+        <button class="btn btn-primary btn-block">
+            Save Object
+        </button>
+    </form>
+
+    <script>
+
+        const form = document.querySelector('form');
+        form.addEventListener('submit', e =>{
+            console.log(e);
+            e.preventDefault();
+        })
+    </script>
+    
+</body>
+</html>

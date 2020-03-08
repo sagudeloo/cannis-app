@@ -1,0 +1,19 @@
+{
+  "name": "cannis-app",
+  "version": "0.0.1",
+  "description": "Esta es una aplicacion para el proyecto final del curso de Ingenieria de Software",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://cannis@dev.azure.com/cannis/cannis-app/_git/cannis-app"
+  },
+  "author": "Stiven Agudelo - Pedro Quintero - Federico Perez",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^8.1.0",
+    "electron-reload": "^1.5.0"
+  }
+}
