@@ -46,8 +46,10 @@
     <section>
     <form class="p-4" action="/buscarObjetos" method="POST" target="_self">
         <div class="form-group">
+            <label for="descripcion">Descripcion</label><br>
             <input type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus>
         </div>
+        <label for="color">Color</label><br>
         <select name = "Color" id="color">
             <option value="none" selected disabled hidden> 
                 Seleccione un color
@@ -63,25 +65,17 @@
             <option value = "Verde"> Verde </option>
         </select>
         <div class="form-group">
+            <label for="ubicacion">Ubicacion</label><br>
             <input type="text" id="ubicacion" class="form-control" placeholder="Ubicacion">
         </div>
         <div class="form-group">
-            <input type="text" id="recibio" class="form-control" placeholder="Recibio por">
-        </div>
-        <div class="form-group">
-            <input type="text" id="llevado" class="form-control" placeholder="Llevado por">
-        </div>
-        <div>
-            <input type="number" id="documento" class="form-control" placeholder="Documento de quien lo llevo">
-        </div>
-        <div class="form-group">
+            <label for="diaRecibido">Fecha</label><br>
             <input type="date" id="diaRecibido" class="form-control" placeholder="Dia">
         </div>
         <button class="btn btn-primary btn-block"> <i class="fas fa-search"></i>
             Buscar
         </button>
-        <p></p>
-        <button class="btn btn-primary btn-block" onclick="location.href='/'">
+        <button class="buttonCancelar" onclick="location.href='/'">
             Cancelar
         </button>
     </form>

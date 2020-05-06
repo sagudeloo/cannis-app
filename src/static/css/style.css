@@ -109,3 +109,13 @@ button{
 .form-group{
   margin: 3px;
 }
+
+.buttonCancelar{
+  background-color: #d6170a;
+  border: none;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 3px;
+}

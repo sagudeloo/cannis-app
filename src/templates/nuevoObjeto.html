@@ -47,12 +47,16 @@
     </div>
     
     <section>
-    <form class="p-4" action="/anadirObjeto" method="POST" enctype="multipart/form-data" target="_self">
-    
+    <form class="p-4" action="/anadirObjeto" method="POST" target="_self">
         <div class="form-group">
-            <input type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus required>
+            <label for="descripcion">Descripcion</label><br>
+            <input type="text" id="descripcion" placeholder="Descripcion" autofocus required>
         </div>
+        <label for="color">Color</label><br>
         <select name = "Color" id="color" required>
+            <option value="none" selected disabled hidden> 
+                Seleccione un color
+            </option>
             <option value = "Azul"> Azul </option>
             <option value = "Amarillo"> Amarillo </option>
             <option value = "Blanco"> Blanco </option>
@@ -64,27 +68,33 @@
             <option value = "Verde"> Verde </option>
         </select>
         <div class="form-group">
+            <label for="localizacionEncontrado">Ubicacion</label><br>
             <input type="text" id="localizacionEncontrado" class="form-control" placeholder="Ubicacion" required>
         </div>
         <div class="form-group">
-            <input type="file" accept="image/*" id="foto" class="form-control" required>
+            <label for="foto">Foto</label><br>
+            <input type="file" accept="image/*" id="foto" class="form-control">
         </div>
         <div class="form-group">
+            <label for="nombrePersona">Llevado pro</label><br>
             <input type="text" id="nombrePersona" class="form-control" placeholder="Llevado por" required>
         </div>
         <div class="form-group">
+            <label for="documentoPersona">Documento de identidad</label><br>
             <input type="number" id="documentoPersona" class="form-control" placeholder="Documento de identidad" required>
         </div>
         <div class="form-group">
+            <label for="telefonoPersona">Telefono</label><br>
             <input type="tel" id="telefonoPersona" class="form-control" placeholder="Telefono" required>
         </div>
         <div class="form-group">
+            <label for="diaEncontrado">Dia</label><br>
             <input type="datetime-local" id="diaEncontrado" class="form-control" placeholder="Dia" required>
         </div>
         <button class="btn btn-primary btn-block" type="submit">
             Guardar
         </button>
-        <button class="btn btn-danger btn-block" onclick="location.href='/'">
+        <button class="buttonCancelar" onclick="location.href='/'">
             Cancelar
         </button>
     </form>
