@@ -47,12 +47,12 @@
     </div>
     
     <section>
-    <form class="p-4" action="/anadirObjeto" method="POST" target="_self">
+    <form class="p-4" action="/anadirObjeto" method="POST" enctype="multipart/form-data" target="_self">
     
         <div class="form-group">
-            <input type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus>
+            <input type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus required>
         </div>
-        <select name = "Color" id="color">
+        <select name = "Color" id="color" required>
             <option value = "Azul"> Azul </option>
             <option value = "Amarillo"> Amarillo </option>
             <option value = "Blanco"> Blanco </option>
@@ -64,22 +64,22 @@
             <option value = "Verde"> Verde </option>
         </select>
         <div class="form-group">
-            <input type="text" id="localizacionEncontrado" class="form-control" placeholder="Ubicacion">
+            <input type="text" id="localizacionEncontrado" class="form-control" placeholder="Ubicacion" required>
         </div>
         <div class="form-group">
-            <input type="file" accept="image/*" id="foto" class="form-control">
+            <input type="file" accept="image/*" id="foto" class="form-control" required>
         </div>
         <div class="form-group">
-            <input type="text" id="nombrePersona" class="form-control" placeholder="Llevado por">
+            <input type="text" id="nombrePersona" class="form-control" placeholder="Llevado por" required>
         </div>
         <div class="form-group">
-            <input type="number" id="documentoPersona" class="form-control" placeholder="Documento de identidad">
+            <input type="number" id="documentoPersona" class="form-control" placeholder="Documento de identidad" required>
         </div>
         <div class="form-group">
-            <input type="tel" id="telefonoPersona" class="form-control" placeholder="Telefono">
+            <input type="tel" id="telefonoPersona" class="form-control" placeholder="Telefono" required>
         </div>
         <div class="form-group">
-            <input type="datetime-local" id="diaEncontrado" class="form-control" placeholder="Dia">
+            <input type="datetime-local" id="diaEncontrado" class="form-control" placeholder="Dia" required>
         </div>
         <button class="btn btn-primary btn-block" type="submit">
             Guardar
