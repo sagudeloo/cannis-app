@@ -9,13 +9,32 @@ def index():
 @app.route('/anadirObjeto', methods=['POST', 'GET'])
 def anadirObjeto():
     if request.method == 'POST':
-        print(request.form.keys)
+        print("Se va a annadir un objeto")
+        informacion={
+            'object':{
+                'descripcion': request.form['descripcion'],
+                'color': request.form['color'],
+                'estado': 1,
+                'localizacionEncontrado':  request.form['localizacionEncontrado'],
+                'foto': request.form[foto]
+            },
+            'persona':{
+                'documento': request.form['documentoPersona'],
+                'nombre': request.form['nombrePersona'],
+                'telefono': request.form['telefonoPersona'],
+            },
+            'registro':{
+                'fecha': request.form['fecha'],
+                'usuario': request.form['usuario'],
+                'accion' : 'ingreso'
+            }
+        }
     return render_template('nuevoObjeto.html')
 
 @app.route('/buscarObjetos', methods=['POST', 'GET'])
 def buscarObjetos():
     if request.method == 'POST':
-        print(request.form.keys)
+        print("Se va a buscar un objeto")
     return render_template('buscarObjetos.html')
 
 @app.route('/login')

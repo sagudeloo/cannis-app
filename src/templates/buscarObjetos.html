@@ -44,13 +44,24 @@
     </div>
     
     <section>
-    <form class="p-4">
+    <form class="p-4" action="/buscarObjetos" method="POST" target="_self">
         <div class="form-group">
             <input type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus>
         </div>
-        <div class="form-group">
-            <input type="text" id="color" class="form-control" placeholder="Color">
-        </div>
+        <select name = "Color" id="color">
+            <option value="none" selected disabled hidden> 
+                Seleccione un color
+            </option>
+            <option value = "Azul"> Azul </option>
+            <option value = "Amarillo"> Amarillo </option>
+            <option value = "Blanco"> Blanco </option>
+            <option value = "Cafe"> Cafe </option>
+            <option value = "Naranja"> Naranja </option>
+            <option value = "Negro"> Negro </option>
+            <option value = "Rojo"> Rojo </option>
+            <option value = "Rosado"> Rosado </option>
+            <option value = "Verde"> Verde </option>
+        </select>
         <div class="form-group">
             <input type="text" id="ubicacion" class="form-control" placeholder="Ubicacion">
         </div>
@@ -70,19 +81,19 @@
             Buscar
         </button>
         <p></p>
-        <button class="btn btn-primary btn-block" onclick="location.href='/buscarObjetos'">
+        <button class="btn btn-primary btn-block" onclick="location.href='/'">
             Cancelar
         </button>
     </form>
     </section>
 
-    <script>
+    <!-- <script>
         const form = document.querySelector('form');
         form.addEventListener('submit', e =>{
             console.log(e);
             e.preventDefault();
         })
-    </script>
+    </script> -->
 
 </body>
 </html>

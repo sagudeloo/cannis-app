@@ -47,7 +47,8 @@
     </div>
     
     <section>
-    <form class="p-4" action="/anadirObjeto" method="post">
+    <form class="p-4" action="/anadirObjeto" method="POST" target="_self">
+    
         <div class="form-group">
             <input type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus>
         </div>
@@ -63,41 +64,31 @@
             <option value = "Verde"> Verde </option>
         </select>
         <div class="form-group">
-            <input type="text" id="ubicacion" class="form-control" placeholder="Ubicacion">
+            <input type="text" id="localizacionEncontrado" class="form-control" placeholder="Ubicacion">
         </div>
         <div class="form-group">
             <input type="file" accept="image/*" id="foto" class="form-control">
         </div>
         <div class="form-group">
-            <input type="text" id="recibio" class="form-control" placeholder="Recibio por">
+            <input type="text" id="nombrePersona" class="form-control" placeholder="Llevado por">
         </div>
         <div class="form-group">
-            <input type="text" id="llevado" class="form-control" placeholder="Llevado por">
-            <input type="number" id="documento" class="form-control" placeholder="Documento de identidad">
+            <input type="number" id="documentoPersona" class="form-control" placeholder="Documento de identidad">
         </div>
         <div class="form-group">
-            <input type="tel" id="telefono" class="form-control" placeholder="Telefono">
+            <input type="tel" id="telefonoPersona" class="form-control" placeholder="Telefono">
         </div>
         <div class="form-group">
-            <input type="datetime-local" id="diaRecibido" class="form-control" placeholder="Dia">
+            <input type="datetime-local" id="diaEncontrado" class="form-control" placeholder="Dia">
         </div>
         <button class="btn btn-primary btn-block" type="submit">
             Guardar
         </button>
-        <p></p>
-        <button class="btn btn-primary btn-block" onclick="location.href='index.html'">
+        <button class="btn btn-danger btn-block" onclick="location.href='/'">
             Cancelar
         </button>
     </form>
     </section>
-
-    <script>
-        const form = document.querySelector('form');
-        form.addEventListener('submit', e =>{
-            console.log(e);
-            e.preventDefault();
-        })
-    </script>
 
 </body>
 </html>
