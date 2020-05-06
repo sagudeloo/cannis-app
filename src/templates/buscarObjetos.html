@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar objetos</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- Este style se utiliza para ocultar unas flechas que aparecen 
+    en la parte derecha del cuadro de texto cuando se utiliza type="number" -->
+    <style>
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+        }
+
+        input[type=number] {
+        -moz-appearance:textfield;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>Cannis<img src="{{ url_for('static', filename='assets/CannisLogo2.png') }}" id="Logo" width="25%" height="25%"></header>
+        <ul>
+            <li onclick= ><a href="/anadirObjeto"><i class="fas fa-sign-out-alt"></i>Añadir objeto</a></li>
+            <li><a href="/buscarObjetos"><i class="fas fa-search"></i>Buscar objetos</a></li>
+            <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
+            <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+            <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+            <li><a href="#"><i class="far fa-envelope"></i>Contacto</a></li>
+        </ul>
+    </div>
+    
+    <section>
+    <form class="p-4">
+        <div class="form-group">
+            <input type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus>
+        </div>
+        <div class="form-group">
+            <input type="text" id="color" class="form-control" placeholder="Color">
+        </div>
+        <div class="form-group">
+            <input type="text" id="ubicacion" class="form-control" placeholder="Ubicacion">
+        </div>
+        <div class="form-group">
+            <input type="text" id="recibio" class="form-control" placeholder="Recibio por">
+        </div>
+        <div class="form-group">
+            <input type="text" id="llevado" class="form-control" placeholder="Llevado por">
+        </div>
+        <div>
+            <input type="number" id="documento" class="form-control" placeholder="Documento de quien lo llevo">
+        </div>
+        <div class="form-group">
+            <input type="date" id="diaRecibido" class="form-control" placeholder="Dia">
+        </div>
+        <button class="btn btn-primary btn-block"> <i class="fas fa-search"></i>
+            Buscar
+        </button>
+        <p></p>
+        <button class="btn btn-primary btn-block" onclick="location.href='/buscarObjetos'">
+            Cancelar
+        </button>
+    </form>
+    </section>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', e =>{
+            console.log(e);
+            e.preventDefault();
+        })
+    </script>
+
+</body>
+</html>
