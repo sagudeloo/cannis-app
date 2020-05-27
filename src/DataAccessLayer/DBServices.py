@@ -3,6 +3,7 @@ from flask_mysqldb import MySQL
 import datetime
 import time
 from Insertion import *
+from CommonDBTools import *
 
 
 class dbManager(abc.ABC):
@@ -16,7 +17,7 @@ class dbManager(abc.ABC):
     def delete_user(self,userDoc):
         pass
     @abc.abstractmethod
-    def query(self,id,varsToGet,varsToSearch):
+    def query(self,tableName,selectionVars):
         pass
     @abc.abstractmethod
     def update():
@@ -25,6 +26,7 @@ class dbManager(abc.ABC):
 class MysqlDBManager(dbManager):
     def __init__(self,app):
         self.mysql = MySQL(app)
+        self.tables = {}
 
 
 
@@ -61,11 +63,14 @@ class MysqlDBManager(dbManager):
 
         return 1
 
-    def query(self,varsToGet,varsToSearch):
-        cursor = self.mysql.connection.cursor()
+    def query(self,tableName,selectionVars):
+
+        if(len(self.tables)==0):
+            self.tables = self.__getTablesNames()
+        command = getQueryCommand(selectionVars,tableName)
         data = ()
         try:
-            command = self.__get_query_command('objetos',varsToGet,varsToSearch)
+            cursor = self.mysql.connection.cursor()
             cursor.execute(command)
             data = cursor.fetchall()
         except Exception as e:
@@ -99,4 +104,20 @@ class MysqlDBManager(dbManager):
             command+=f"WHERE {searchVar[0]}={searchVar[1]}"
         
         return command
+    
+    def __getTablesNames(self):
+        names = ()
+        try:
+            cursor = self.mysql.connection.cursor()
+            print(self.mysql.app.config['MYSQL_DB'])
+            cursor.execute(f"SELECT table_name FROM information_schema.tables WHERE table_schema = '{self.mysql.app.config['MYSQL_DB']}';")
+            self.mysql.connection.commit()
+            names = cursor.fetchall()
+            print(names)
+        except Exception as e:
+            print(e)
+            print('Aca')
+        
+        return names
+
 

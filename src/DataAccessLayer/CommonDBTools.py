@@ -36,6 +36,7 @@ def getQueryCommand(selectionVars,tableName):
     
     return command
 
+#def transformDBResponse(responseTuple):
 if __name__ == "__main__":
     #print(getQueryCommand({'documento':1037,'nombre':'Pedro'},'personas'))
     print(getQueryCommand({'datetime':23},'personas'))

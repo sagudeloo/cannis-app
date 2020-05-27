@@ -1,7 +1,6 @@
 from flask import Flask,request,render_template,redirect,url_for
 from flask_mysqldb import MySQL
-from dataUtilities import MysqlDBManager
-from newTest import data
+from DBServices import MysqlDBManager
 import datetime
 
 app = Flask(__name__)
@@ -30,10 +29,11 @@ def add():
         secularData = {'persona':dataPerson,'registro':dataRegister}
         #dataUser = {'documento':400300800,'email':'pablito@eafit.edu.co','clave':'fuckU'}
         dataObject = {'diaEncontrado': f"{datetime.datetime.now():%Y-%m-%d %H:%M:%S}",'color':'Mierda','estado':1,'localizacionEncontrado':'Bloque 19','foto':'sfd','descripcion':'Bonito'}
-        resp = mysql.add(dataObject=dataObject,secularData=secularData)
-        #resp = db.addToTable(user=dataUser)
-        #print(resp)
-        print(resp)
+        #resp = mysql.add(dataObject=dataObject,secularData=secularData)
+        selectionVars = {'descripcion':'mio'} 
+        resp = mysql.query('objetos',selectionVars)
+        print(type(resp))
+        print(resp[0])
     return redirect(url_for('Index'))
 
 if __name__=='__main__':
