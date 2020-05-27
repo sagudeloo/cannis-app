@@ -11,6 +11,30 @@ def existInTable(userDoc,tableName,database):
         print(data)
         return data[0]
 
+def getUpdateCommand(table,updateVars,searchVar):
+        commaCounter = 0
+        command = f"UPDATE {table} SET "
+        for i in data:
+            if(commaCounter<len(updVars)-1):
+                command+=f"{data[0]}={data[1]}, "
+            else:
+                command+=f"{data[0]}={data[1]} "
+        
+        if(len(searchVar)!=0):
+            command+=f"WHERE {searchVar[0]}={searchVar[1]}"
+        
+        return command
+
+def getIdObject(database):
+        cursor = database.connection.cursor()
+        cursor.execute(f"SELECT MAX(idObjeto) FROM objetos;")
+        #cur.execute(f"CALL userExists({userDoc})")
+        database.connection.commit()
+        data = cursor.fetchone()
+        print(type(data))
+        print(data)
+        return data[0]
+
 def getQueryCommand(selectionVars,tableName):
 
     command = f"SELECT * FROM {tableName} WHERE "

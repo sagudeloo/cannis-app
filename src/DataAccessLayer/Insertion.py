@@ -42,6 +42,7 @@ class ObjectInserter(Inserter):
                 cursor = self.database.connection.cursor()
                 cursor.execute("INSERT INTO objetos (diaEncontrado,color,estado,localizacionEncontrado,foto,descripcion) VALUES (%s,%s,%s,%s,%s,%s)",variables)
                 self.database.connection.commit()
+                self.registerData['objeto'] = getIdObject(self.database)
                 self.createRegister()
                 return 1
             except Exception as e:
