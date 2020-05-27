@@ -100,16 +100,3 @@ class MysqlDBManager(dbManager):
         
         return command
 
-    def existsUser(self,userDoc):
-        cur = self.mysql.connection.cursor()
-        cur.execute(f"SELECT IF(EXISTS(SELECT * FROM usuarios WHERE documento={userDoc}),1,0)")
-        #cur.execute(f"CALL userExists({userDoc})")
-        self.mysql.connection.commit()
-        data = cur.fetchall()
-        print(type(data))
-        print(data)
-        return data
-
-
-
-
