@@ -120,16 +120,6 @@ class UserInserter(Inserter):
             print(e)
             return 0
 
-    def __existsPerson(self,personDoc):
-        cur = self.database.connection.cursor()
-        cur.execute(f"SELECT IF(EXISTS(SELECT * FROM personas WHERE documento={personDoc}),1,0)")
-        #cur.execute(f"CALL userExists({userDoc})")
-        self.database.connection.commit()
-        data = cur.fetchall()
-        print(type(data))
-        print(data)
-        return data
-
 
 class InserterFactory():
 
