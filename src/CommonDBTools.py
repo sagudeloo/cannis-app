@@ -11,6 +11,18 @@ def existInTable(userDoc,tableName,database):
         print(data)
         return data[0]
 
+def getVar(tableName,varName,doc):
+
+    cursor = database.connection.cursor()
+    cursor.execute(f"SELECT {varName} FROM {tableName} WHERE documento={doc}")
+    #cur.execute(f"CALL userExists({userDoc})")
+    database.connection.commit()
+    data = cursor.fetchone()
+    print(type(data))
+    print(data)
+    return data[0]
+
+
 def getUpdateCommand(table,updateVars,searchVar):
         commaCounter = 0
         command = f"UPDATE {table} SET "
@@ -48,16 +60,18 @@ def getQueryCommand(selectionVars,tableName):
 
         if(numVars==1 or i==numVars-1):
             if(isinstance(columnValue,str)):
-                command+=f"{nameColumn} LIKE \"{columnValue}%\""
+                command+=f"{nameColumn} LIKE '{columnValue}%' "
             else:
-                command+=f"{nameColumn}={columnValue}"
+                command+=f"{nameColumn}={columnValue} "
 
         elif(numVars>1 and i<numVars-1):
             if(isinstance(columnValue,str)):
-                command+=f"{nameColumn} LIKE \"{columnValue}%\""
+                command+=f"{nameColumn} LIKE '{columnValue}%' and "
             else:
                 command+=f"{nameColumn}={columnValue} and "
     
+    print('THE COMMAND')
+    print(command)
     return command
 
 #def transformDBResponse(responseTuple):

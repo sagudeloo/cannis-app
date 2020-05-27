@@ -107,8 +107,11 @@ class UserInserter(Inserter):
         self.database = database
     
     def insert(self):
-        variables = tuple(self.userData.values())
+        variables = tuple(self.dataUser.values())
         cursor = self.database.connection.cursor()
+        if(not existInTable(self.dataUser['documento'],'personas',self.database)):
+            personInsert = PersonInserter({'documento':self.dataUser['documento'],'nombre':'NotEntered','telefono':0},self.database)
+            personInsert.insert()
         try:
             cursor.execute("INSERT INTO usuarios (documento,email,clave) VALUES (%s,%s,%s)",variables)
             self.database.connection.commit()
