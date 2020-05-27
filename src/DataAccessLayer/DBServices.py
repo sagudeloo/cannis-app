@@ -80,7 +80,7 @@ class MysqlDBManager(dbManager):
             print(e)
         return data
     
-    def update(self,tabla,updVars,searchVar):
+    def update(self,tableName,updVars,searchVar):
         respCode = 0
         cursor = self.mysql.connection.cursor()
         commad = self.__getUpdateCommand()
