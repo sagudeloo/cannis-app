@@ -67,12 +67,15 @@ class MysqlDBManager(dbManager):
 
         if(len(self.tables)==0):
             self.tables = self.__getTablesNames()
+            self.__getTablesColumns()
+            print(self.tables)
         command = getQueryCommand(selectionVars,tableName)
         data = ()
         try:
             cursor = self.mysql.connection.cursor()
             cursor.execute(command)
-            data = cursor.fetchall()
+            dbReturn = cursor.fetchall()
+            data = self.__fillQueryResponse(dbReturn,tableName)
         except Exception as e:
             print(e)
         return data
@@ -106,18 +109,47 @@ class MysqlDBManager(dbManager):
         return command
     
     def __getTablesNames(self):
-        names = ()
+        names = {}
         try:
             cursor = self.mysql.connection.cursor()
             print(self.mysql.app.config['MYSQL_DB'])
             cursor.execute(f"SELECT table_name FROM information_schema.tables WHERE table_schema = '{self.mysql.app.config['MYSQL_DB']}';")
             self.mysql.connection.commit()
-            names = cursor.fetchall()
+            for varName in cursor.fetchall():
+                names[varName[0]] = 0
             print(names)
         except Exception as e:
             print(e)
             print('Aca')
         
         return names
+    
+    def __getTablesColumns(self):
 
+        columnDict = {}
+        try:
+            for table in self.tables:
+                cursor = self.mysql.connection.cursor()
+                cursor.execute(f"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'{table}' order by ORDINAL_POSITION ASC;")
+                self.mysql.connection.commit()
+                for colName in cursor.fetchall():
+                    columnDict[colName[0]] = 0
+                self.tables[table] = columnDict
+                columnDict = {}
+        except Exception:
+            print('Columnas',e)
 
+    def __fillQueryResponse(self,data,tableName):
+        
+        print('DATA HERE')
+        print(data)
+        respList = []
+        regDict = self.tables[tableName]
+        colNames = list(regDict.keys())
+        for numRegisters in range(len(data)):
+            for valuePos in range(len(data[0])):
+                value = data[numRegisters][valuePos]
+                regDict[colNames[valuePos]] = value
+            respList.append(regDict)
+
+        return respList

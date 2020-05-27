@@ -33,7 +33,7 @@ def add():
         selectionVars = {'descripcion':'mio'} 
         resp = mysql.query('objetos',selectionVars)
         print(type(resp))
-        print(resp[0])
+        print(resp)
     return redirect(url_for('Index'))
 
 if __name__=='__main__':
