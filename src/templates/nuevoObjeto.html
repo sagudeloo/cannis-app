@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Añadir objeto</title>
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <!-- Este style se utiliza para ocultar unas flechas que aparecen 
     en la parte derecha del cuadro de texto cuando se utiliza type="number" -->
     <style>
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { 
-        -webkit-appearance: none; 
-        margin: 0; 
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
 
         input[type=number] {
-        -moz-appearance:textfield;
+            -moz-appearance: textfield;
         }
     </style>
 
@@ -30,12 +31,13 @@
 <body>
     <input type="checkbox" id="check">
     <label for="check">
-      <i class="fas fa-bars" id="btn"></i>
-      <i class="fas fa-times" id="cancel"></i>
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
     </label>
 
     <div class="sidebar">
-        <header> Cannis <img src="{{ url_for('static', filename='assets/CannisLogo2.png') }}" id="Logo" width="25%" height="25%">   </header>
+        <header> Cannis <img src="../static/assets/CannisLogo2.png" id="Logo" width="25%"
+                height="25%"> </header>
         <ul>
             <li><a href="/anadirObjeto"><i class="fas fa-sign-out-alt"></i>Añadir objeto</a></li>
             <li><a href="/buscarObjetos"><i class="fas fa-search"></i>Buscar objetos</a></li>
@@ -45,60 +47,66 @@
             <li><a href="#"><i class="far fa-envelope"></i>Contacto</a></li>
         </ul>
     </div>
-    
+
     <section>
-    <form class="p-4" action="/anadirObjeto" method="POST" target="_self">
-        <div class="form-group">
-            <label for="descripcion">Descripcion</label><br>
-            <input type="text" id="descripcion" placeholder="Descripcion" autofocus required>
-        </div>
-        <label for="color">Color</label><br>
-        <select name = "Color" id="color" required>
-            <option value="none" selected disabled hidden> 
-                Seleccione un color
-            </option>
-            <option value = "Azul"> Azul </option>
-            <option value = "Amarillo"> Amarillo </option>
-            <option value = "Blanco"> Blanco </option>
-            <option value = "Cafe"> Cafe </option>
-            <option value = "Naranja"> Naranja </option>
-            <option value = "Negro"> Negro </option>
-            <option value = "Rojo"> Rojo </option>
-            <option value = "Rosado"> Rosado </option>
-            <option value = "Verde"> Verde </option>
-        </select>
-        <div class="form-group">
-            <label for="localizacionEncontrado">Ubicacion</label><br>
-            <input type="text" id="localizacionEncontrado" class="form-control" placeholder="Ubicacion" required>
-        </div>
-        <div class="form-group">
-            <label for="foto">Foto</label><br>
-            <input type="file" accept="image/*" id="foto" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="nombrePersona">Llevado pro</label><br>
-            <input type="text" id="nombrePersona" class="form-control" placeholder="Llevado por" required>
-        </div>
-        <div class="form-group">
-            <label for="documentoPersona">Documento de identidad</label><br>
-            <input type="number" id="documentoPersona" class="form-control" placeholder="Documento de identidad" required>
-        </div>
-        <div class="form-group">
-            <label for="telefonoPersona">Telefono</label><br>
-            <input type="tel" id="telefonoPersona" class="form-control" placeholder="Telefono" required>
-        </div>
-        <div class="form-group">
-            <label for="diaEncontrado">Dia</label><br>
-            <input type="datetime-local" id="diaEncontrado" class="form-control" placeholder="Dia" required>
-        </div>
-        <button class="btn btn-primary btn-block" type="submit">
-            Guardar
-        </button>
-        <button class="buttonCancelar" onclick="location.href='/'">
-            Cancelar
-        </button>
-    </form>
-    </section>
+        <section>
+            <form class="p-4" action="/anadirObjeto" method="POST">
+                <div class="form-group">
+                    Descripcion:
+                    <input name="descripcion" type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus required>
+                </div>
+                Color:
+                <select name="color" id="color" required>
+                    <option disabled selected value> Selecciona una opcion </option>
+                    <option value="Azul"> Azul </option>
+                    <option value="Amarillo"> Amarillo </option>
+                    <option value="Blanco"> Blanco </option>
+                    <option value="Cafe"> Cafe </option>
+                    <option value="Naranja"> Naranja </option>
+                    <option value="Negro"> Negro </option>
+                    <option value="Rojo"> Rojo </option>
+                    <option value="Rosado"> Rosado </option>
+                    <option value="Verde"> Verde </option>
+                </select>
+                <div class="form-group">
+                    Ubicación:
+                    <input name="ubicacion" type="text" id="ubicacion" class="form-control" placeholder="Ubicacion" required>
+
+                </div>
+                <div class="form-group">
+                    Foto:
+                    <input name="foto" type="file" accept="image/*" id="foto" class="form-control" required>
+                </div>
+                <!-- <div class="form-group">
+                    Recibido por:
+                    <input type="text" id="recibio" class="form-control" placeholder="Documento de quien recibio">
+                </div> -->
+                <div class="form-group">
+                    Llevado por:
+                    <input type="text" id="llevado" name="llevado" class="form-control" placeholder="Llevado por" required>
+                </div>
+                <div class="form-group">
+                    Documento:
+                    <input type="number" id="documento" name="documento" class="form-control" placeholder="Documento de identidad" required>
+                </div>
+                <div class="form-group">
+                    Telefono:
+                    <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Telefono" required>
+                </div>
+                <div class="form-group">
+                    Dia Encontrado:
+                    <input type="datetime-local" id="diaEncontrado" name="diaEncontrado" class="form-control" placeholder="Dia" required>
+                </div>
+                <button id="add" class="btn btn-primary btn-block" type="submit">
+                    Guardar
+                </button>
+                <p></p>
+                <button class="buttonCancelar" onclick="location.href='index.html'">
+                    Cancelar
+                </button>
+            </form>
+        </section>
 
 </body>
+
 </html>

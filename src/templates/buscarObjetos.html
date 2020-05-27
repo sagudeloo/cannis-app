@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar objetos</title>
     
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     <!-- Este style se utiliza para ocultar unas flechas que aparecen 
@@ -32,28 +32,25 @@
     </label>
 
     <div class="sidebar">
-        <header>Cannis<img src="{{ url_for('static', filename='assets/CannisLogo2.png') }}" id="Logo" width="25%" height="25%"></header>
+        <header>Cannis<img src="../static/assets/CannisLogo1.png" id="Logo" width="25%" height="25%"></header>
         <ul>
-            <li onclick= ><a href="/anadirObjeto"><i class="fas fa-sign-out-alt"></i>Añadir objeto</a></li>
-            <li><a href="/buscarObjetos"><i class="fas fa-search"></i>Buscar objetos</a></li>
+            <li><a href="/anadirObjeto"><i class="fas fa-sign-out-alt"></i>Añadir objeto</a></li>
+            <li><a href="/buscarObjeto"><i class="fas fa-search"></i>Buscar objetos</a></li>
             <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
             <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
-            <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
-            <li><a href="#"><i class="far fa-envelope"></i>Contacto</a></li>
+
         </ul>
     </div>
     
     <section>
-    <form class="p-4" action="/buscarObjetos" method="POST" target="_self">
+    <form class="p-4">
         <div class="form-group">
-            <label for="descripcion">Descripcion</label><br>
+            Descripcion:
             <input type="text" id="descripcion" class="form-control" placeholder="Descripcion" autofocus>
         </div>
-        <label for="color">Color</label><br>
-        <select name = "Color" id="color">
-            <option value="none" selected disabled hidden> 
-                Seleccione un color
-            </option>
+        Color:
+        <select class="form-group" name = "Color" id="color">
+            <option disabled selected value> Selecciona una opcion </option>
             <option value = "Azul"> Azul </option>
             <option value = "Amarillo"> Amarillo </option>
             <option value = "Blanco"> Blanco </option>
@@ -65,29 +62,42 @@
             <option value = "Verde"> Verde </option>
         </select>
         <div class="form-group">
-            <label for="ubicacion">Ubicacion</label><br>
+            Ubicacion encontrado:
             <input type="text" id="ubicacion" class="form-control" placeholder="Ubicacion">
         </div>
         <div class="form-group">
-            <label for="diaRecibido">Fecha</label><br>
+            Recibio por:
+            <input type="text" id="recibio" class="form-control" placeholder="Recibio por">
+        </div>
+        <div class="form-group">
+            Llevado por:
+            <input type="text" id="llevado" class="form-control" placeholder="Llevado por">
+        </div>
+        <div>
+            Documento de quien lo llevo:
+            <input type="number" id="documento" class="form-control" placeholder="Documento de quien lo llevo">
+        </div>
+        <div class="form-group">
+            Dia recibido:
             <input type="date" id="diaRecibido" class="form-control" placeholder="Dia">
         </div>
-        <button class="btn btn-primary btn-block"> <i class="fas fa-search"></i>
+        <button class="btn btn-primary btn-block" onclick="location.href='vistaObjetos.html'"> <i class="fas fa-search"></i>
             Buscar
         </button>
-        <button class="buttonCancelar" onclick="location.href='/'">
+        <p></p>
+        <button class="buttonCancelar" onclick="location.href='index.html'">
             Cancelar
         </button>
     </form>
     </section>
 
-    <!-- <script>
+    <script>
         const form = document.querySelector('form');
         form.addEventListener('submit', e =>{
             console.log(e);
             e.preventDefault();
         })
-    </script> -->
+    </script>
 
 </body>
 </html>

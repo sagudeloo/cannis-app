@@ -62,13 +62,14 @@ class ObjectInserter(Inserter):
     def createRegister(self):
 
         variables = tuple(self.registerData.values())
+        print(variables)
         try:
             cursor = self.database.connection.cursor()
             cursor.execute("INSERT INTO registros (fecha,usuario,persona,accion,objeto) VALUES (%s,%s,%s,%s,%s);",variables)
             self.database.connection.commit()
             return 1
         except Exception as e:
-            print(e)
+            print(e,'fuck')
             return 0
 
 

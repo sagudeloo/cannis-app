@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+    
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <style>
+        .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 10px;
+        background-color: #0f7196;
+        padding: 10px;
+        margin-left: 5%;
+        border-radius: 5px;
+        }
+
+        .grid-container > div {
+         background-color: rgba(255, 255, 255);
+        border: 1px solid black;
+        text-align: center;
+        font-size: 22px;
+        }
+
+        .sidebar > header > img {
+        width: 25%;
+        height: 25%;
+        }
+
+        img {
+        width: 250px;
+        height: 250px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>Cannis<img src="../static/assets/CannisLogo2.png" id="Logo"></header>
+        <ul>
+            <li><a href="/anadirObjeto"><i class="fas fa-sign-out-alt"></i>Añadir objeto</a></li>
+            <li><a href="/buscarObjeto"><i class="fas fa-search"></i>Buscar objetos</a></li>
+            <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
+            <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+
+        </ul>
+    </div>
+    
+    <section>
+    <form class="p-4">
+        <div class="grid-container">
+            <div>
+                <div id='nombre'> Fondo Cannis </div>
+                <br>
+                <img src="../css/Testeo.png" id='foto'>
+                <br>
+                <button class="btn btn-primary btn-block" onclick="location.href=''"><i class="far fa-handshake"></i>
+                    Entregar
+                </button>
+            </div>
+            <div>
+                <div id='nombre'> Super Logo </div>
+                <br>
+                <img src="https://www.w3schools.com/images/w3schools_green.jpg" id='foto'>
+                <br>
+                <button class="btn btn-primary btn-block" onclick="location.href=''"><i class="far fa-handshake"></i>
+                    Entregar
+                </button>
+            </div>
+            <div>
+                <div id='nombre'> Logo Cannis </div>
+                <br>
+                <img src="../css/CannisLogo1.png" id='foto'>
+                <br>
+                <button class="btn btn-primary btn-block" onclick="location.href=''"><i class="far fa-handshake"></i>
+                    Entregar
+                </button>
+            </div>
+            <div>
+                USB SanDisk
+            </div>
+            <div>
+                1
+            </div>
+            <div>
+                1
+            </div>
+            <div>2</div>
+            <div>3</div>  
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>13</div>    
+        </div>
+    </section>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', e =>{
+            console.log(e);
+            e.preventDefault();
+        })
+    </script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cannis</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleIndex.css') }}">
+    <link rel="stylesheet" href="../static/css/styleIndex.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
@@ -15,19 +15,17 @@
     </label>
 
     <div class="sidebar">
-        <header> Cannis<img src="{{ url_for('static', filename='assets/CannisLogo2.png') }}" id="Logo" width="25%" height="25%"></header>
+        <header> Cannis<img src="../static/assets/CannisLogo1.png" id="Logo" width="25%" height="25%"></header>
         <ul>
             <li><a href="/anadirObjeto"><i class="fas fa-sign-out-alt"></i>Añadir objeto</a></li>
-            <li><a href="/buscarObjetos"><i class="fas fa-search"></i>Buscar objetos</a></li>
-            <li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
+            <li><a href="/buscarObjeto"><i class="fas fa-search"></i>Buscar objetos</a></li>
+            <li><a href="prueba.html"><i class="fas fa-calendar-week"></i>Events</a></li>
             <li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
-            <li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
-            <li><a href="#"><i class="far fa-envelope"></i>Contacto</a></li>
         </ul>
     </div>
     <section>
         <form>
-            <img src="{{ url_for('static', filename='assets/CannisLogo2.png') }}" id="Logo" width="50%" height="50%">
+            <img src="../static/assets/CannisLogo2.png" id="Logo" width="50%" height="50%">
         </form>
     </section>
     
